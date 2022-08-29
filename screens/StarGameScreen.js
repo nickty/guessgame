@@ -1,10 +1,19 @@
 /** @format */
 
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import React from 'react';
+import React, { useState  } from 'react';
 import PrimaryButton from '../components/PrimaryButton';
 
 const StarGameScreen = () => {
+  const [number, setnumber] = useState('')
+
+  const numberInputHanlder = (input) => {
+    setnumber(input)
+  }
+
+  const confirmInput = () => {
+
+  }
   return (
     <View style={styles.inputContainer}>
       <TextInput
@@ -13,13 +22,15 @@ const StarGameScreen = () => {
         keyboardType='number-pad'
         autoCapitalize='none'
         autoCorrect={false}
+        value={number}
+        onChangeText={numberInputHanlder}
       />
       <View style={styles.buttonsContainer}>
         <View style={styles.buttonCont}>
           <PrimaryButton>Reset</PrimaryButton>
         </View>
         <View style={styles.buttonCont}>
-          <PrimaryButton>Confirm</PrimaryButton>
+          <PrimaryButton onPress={confirmInput}>Confirm</PrimaryButton>
         </View>
       </View>
     </View>
