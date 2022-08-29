@@ -6,7 +6,11 @@ import React, { Children } from 'react';
 const PrimaryButton = ({ children }) => {
   return (
     <View style={styles.outerContainter}>
-      <Pressable android_ripple={{ color: '#000000' }} style={styles.container}>
+      <Pressable
+        android_ripple={{ color: '#000000' }}
+        style={({ pressed }) =>
+          pressed ? [styles.container, styles.pressed] : styles.container
+        }>
         <Text style={styles.buttonText}>{children}</Text>
       </Pressable>
     </View>
@@ -31,5 +35,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     textAlign: 'center',
+  },
+  pressed: {
+    opacity: 0.75,
   },
 });
