@@ -1,6 +1,6 @@
 /** @format */
 
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Alert, Text, TextInput, View } from 'react-native';
 import React, { useState  } from 'react';
 import PrimaryButton from '../components/PrimaryButton';
 
@@ -11,8 +11,17 @@ const StarGameScreen = () => {
     setnumber(input)
   }
 
-  const confirmInput = () => {
+  const resetNumber = () => {
+    setnumber('')
+  }
 
+  const confirmInput = () => {
+    const chosenNumber = parseInt(number)
+
+    if(isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99){
+      Alert.alert('Invalid Number', "It has to be a number", [{text: 'Okay', style: 'desctuctive', onPress: resetNumber}])
+      return; 
+    }
   }
   return (
     <View style={styles.inputContainer}>
@@ -27,7 +36,7 @@ const StarGameScreen = () => {
       />
       <View style={styles.buttonsContainer}>
         <View style={styles.buttonCont}>
-          <PrimaryButton>Reset</PrimaryButton>
+          <PrimaryButton onPress={resetNumber}>Reset</PrimaryButton>
         </View>
         <View style={styles.buttonCont}>
           <PrimaryButton onPress={confirmInput}>Confirm</PrimaryButton>
