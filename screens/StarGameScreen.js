@@ -14,8 +14,14 @@ const StarGameScreen = () => {
         autoCapitalize='none'
         autoCorrect={false}
       />
-      <PrimaryButton>Reset</PrimaryButton>
-      <PrimaryButton>Confirm</PrimaryButton>
+      <View style={styles.buttonsContainer}>
+        <View style={styles.buttonCont}>
+          <PrimaryButton>Reset</PrimaryButton>
+        </View>
+        <View style={styles.buttonCont}>
+          <PrimaryButton>Confirm</PrimaryButton>
+        </View>
+      </View>
     </View>
   );
 };
@@ -31,6 +37,8 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#72063c',
     elevation: 4,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   numberInput: {
     height: 50,
@@ -42,5 +50,11 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+  },
+  buttonCont: {
+    flex: 1,
   },
 });
