@@ -3,11 +3,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text } from 'react-native';
 import StarGameScreen from './screens/StarGameScreen';
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient} from 'expo-linear-gradient'
 
 export default function App() {
   return (
-    <LinearGradient style={styles.screen}>
+    <LinearGradient colors={['#000000', '#ffffff ']} style={styles.screen}>
       <StarGameScreen />
     </LinearGradient>
   );
@@ -15,7 +15,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: '#ddb52f',
     flex: 1,
   },
 });
