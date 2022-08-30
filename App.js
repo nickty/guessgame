@@ -1,7 +1,7 @@
 /** @format */
 
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, ImageBackground } from 'react-native';
+import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import StarGameScreen from './screens/StarGameScreen';
 import { LinearGradient} from 'expo-linear-gradient' 
 import React, { useState } from 'react'
@@ -21,7 +21,10 @@ export default function App() {
   return (
     <LinearGradient colors={['#000000', '#ffffff ']} style={styles.screen}>
      <ImageBackground style={styles.screen} imageStyle={styles.backImage} source={require('./assets/splash.png')} resizeMode="cover">
-     {screen}
+    <SafeAreaView style={styles.rootArea }>
+    {screen}
+    </SafeAreaView>
+     
      </ImageBackground>
       
     </LinearGradient>
@@ -29,6 +32,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  rootArea: {
+    flex: 1
+  },
   screen: {
     flex: 1,
   },
