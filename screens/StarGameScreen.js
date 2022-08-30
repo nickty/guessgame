@@ -4,7 +4,7 @@ import { StyleSheet, Alert, Text, TextInput, View } from 'react-native';
 import React, { useState  } from 'react';
 import PrimaryButton from '../components/PrimaryButton';
 
-const StarGameScreen = () => {
+const StarGameScreen = ({onPickedNumber}) => {
   const [number, setnumber] = useState('')
 
   const numberInputHanlder = (input) => {
@@ -22,6 +22,8 @@ const StarGameScreen = () => {
       Alert.alert('Invalid Number', "It has to be a number", [{text: 'Okay', style: 'desctuctive', onPress: resetNumber}])
       return; 
     }
+
+    onPickedNumber(chosenNumber)
   }
   return (
     <View style={styles.inputContainer}>
